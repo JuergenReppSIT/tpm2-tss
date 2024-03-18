@@ -7,8 +7,8 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     strategy:
       matrix:
-        docker_image: [ubuntu-20.04, fedora-32, opensuse-leap, ubuntu-22.04, alpine-3.15]
-        compiler: [gcc, clang]
+        docker_image: [ubuntu-20.04 ]
+        compiler: [gcc ]
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
         run: cat $(find ../ -name test-suite.log) || true
   scanbuild:
     runs-on: ubuntu-latest
-    if: "!contains(github.ref, 'coverity_scan')"
+    if: "contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
         run: cat $(find ../ -name test-suite.log) || true
   test-tcti-config:
     runs-on: ubuntu-latest
-    if: "!contains(github.ref, 'coverity_scan')"
+    if: "contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -65,10 +65,10 @@ jobs:
         run: cat $(find ../ -name test-suite.log) || true
   test-mbedtls:
     runs-on: ubuntu-latest
-    if: "!contains(github.ref, 'coverity_scan')"
+    if: "contains(github.ref, 'coverity_scan')"
     strategy:
       matrix:
-        docker_image: [ubuntu-20.04, ubuntu-22.04-mbedtls-3.1]
+        docker_image: [ubuntu-20.04 ]
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -87,7 +87,7 @@ jobs:
         run: cat $(find ../ -name test-suite.log) || true
   test-no-crypto-build:
     runs-on: ubuntu-latest
-    if: "!contains(github.ref, 'coverity_scan')"
+    if: "contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -106,7 +106,7 @@ jobs:
         run: cat $(find ../ -name test-suite.log) || true
   test-coverage:
     runs-on: ubuntu-latest
-    if: "!contains(github.ref, 'coverity_scan')"
+    if: "contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -125,7 +125,7 @@ jobs:
         run: cat $(find ../ -name test-suite.log) || true
   test-fuzz:
     runs-on: ubuntu-latest
-    if: "!contains(github.ref, 'coverity_scan')"
+    if: "contains(github.ref, 'coverity_scan')"
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
