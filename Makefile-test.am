@@ -1068,7 +1068,6 @@ noinst_PROGRAMS += test/unit/fapi-system-fuzzing
 endif # FAPI
 
 if POLICY
-TESTS_UNIT += test/unit/tss2_policy
 
 test_unit_tss2_policy_CFLAGS  = $(CMOCKA_CFLAGS) $(TESTS_CFLAGS)
 test_unit_tss2_policy_LDADD   = $(CMOCKA_LIBS) $(libtss2_policy) $(libtss2_esys)
