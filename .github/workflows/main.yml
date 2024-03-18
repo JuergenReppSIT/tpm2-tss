@@ -7,7 +7,7 @@ jobs:
     if: "!contains(github.ref, 'coverity_scan')"
     strategy:
       matrix:
-        docker_image: [ubuntu-20.04 ]
+        docker_image: [fedora-32, ubuntu-20.04 ]
         compiler: [gcc ]
     steps:
       - name: Check out repository
