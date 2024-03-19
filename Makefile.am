@@ -62,8 +62,6 @@ else
 @CODE_COVERAGE_RULES@
 clean-local:
 	-rm -r -f $(top_builddir)/ca
-distclean-local:
-	-rm -r -f $(top_builddir)/ca
 
 endif
 GITIGNOREFILES += $(TSS_GITIGNOREFILES)
@@ -1006,14 +1004,7 @@ uninstall-local:
 		[ -L Tss2_TctiLdr_Initialize_Ex.3 ] && \
 			rm -f Tss2_TctiLdr_Initialize_Ex.3 || true
 
-prepare-check:
-if INIT_CA
-	$(top_srcdir)/script/ekca/init_ca.sh $(top_builddir)
-	@echo "Build CI in:" 1>&2
-	@echo $(top_builddir) 1>&2
-endif
-
-check: prepare-check
+check:
 
 EXTRA_DIST += \
     doc/doxygen.dox \

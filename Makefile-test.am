@@ -84,9 +84,9 @@ $(FAPI_TEST_BINS) : %.bin : %.b64
 if UNIT
 TESTS_UNIT  = \
     test/unit/CommonPreparePrologue \
-    test/unit/CopyCommandHeader
-
-
+    test/unit/CopyCommandHeader \
+    test/unit/io \
+    test/unit/log
 endif #UNIT
 
 if ENABLE_INTEGRATION
