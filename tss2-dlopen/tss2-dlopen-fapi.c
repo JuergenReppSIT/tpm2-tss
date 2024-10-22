@@ -41,7 +41,7 @@ init_dlhandle(void)
 {
     if (dlhandle)
         return TSS2_RC_SUCCESS;
-    dlhandle = dlopen(LIB, RTLD_NOW | RTLD_LOCAL);
+     dlhandle = dlopen(LIB, RTLD_NOW | RTLD_LOCAL);
     if (!dlhandle) {
         WARN("Library " LIB " not found: %s.", dlerror());
         return TSS2_FAPI_RC_NOT_IMPLEMENTED;

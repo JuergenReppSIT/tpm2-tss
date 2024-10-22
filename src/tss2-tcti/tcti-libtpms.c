@@ -621,6 +621,7 @@ tcti_libtpms_dl(TSS2_TCTI_LIBTPMS_CONTEXT *tcti_libtpms)
     const char *names[] = {"libtpms.so", "libtpms.so.0"};
 
     for (size_t i = 0; i < ARRAY_LEN(names); i++) {
+        LOG_ERROR("XXX 7 %s", names[i]);
         tcti_libtpms->libtpms = dlopen(names[i], RTLD_LAZY | RTLD_LOCAL);
         if (tcti_libtpms->libtpms != NULL) {
             break;

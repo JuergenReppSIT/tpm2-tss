@@ -107,6 +107,7 @@ handle_from_name(const char *file,
             LOG_ERROR("TCTI name truncated in transform.");
             return TSS2_TCTI_RC_BAD_VALUE;
         }
+        LOG_ERROR("XXX 1 %s", file_xfrm);
         *handle = dlopen(file_xfrm, RTLD_NOW);
         if (*handle != NULL) {
             return TSS2_RC_SUCCESS;
